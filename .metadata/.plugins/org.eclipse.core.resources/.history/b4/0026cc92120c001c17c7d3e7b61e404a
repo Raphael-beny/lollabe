@@ -1,0 +1,107 @@
+package br.com.lollabe.model;
+
+
+import java.awt.image.BufferedImage;
+import java.util.Base64;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+
+
+@Entity
+public class Produto {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotNull(message = "Produto deve ter um nome!")
+	@NotEmpty(message = "Produto deve ter nome!")
+	private String nome;
+	
+	@NotNull
+	private double preco;
+	
+	@NotNull
+	private int codigo;
+	
+	private String descricao;
+	
+	@Column(name = "foto")
+	@Lob
+	private String foto;
+	
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void uploadFoto() {
+		System.out.println("Chamou metodo!");
+		
+	}
+	
+	public String encodeToString(BufferedImage image) {
+		String encodedString = Base64.getEncoder().encodeToString(foto.getBytes());
+        return encodedString;
+    }
+	
+	public String decodeToString(String encodedString) {
+		byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
+		String decodedString = new String(decodedBytes);
+        return decodedString;
+    }
+	
+	
+}

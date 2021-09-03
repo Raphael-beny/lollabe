@@ -1,0 +1,61 @@
+package br.com.lollabe.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.lollabe.model.Foto;
+import br.com.lollabe.model.Produto;
+
+public class FotoDAO {
+
+	public Boolean inserir(Foto foto) {
+		
+	        Boolean retorno = false;
+	        String sql = "INSERT INTO foto (imagem) values (?)";
+	        
+	        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+	        try
+	        {
+	            pst.setBytes(1, foto.getImagem());
+	            pst.executeUpdate();
+	            retorno = true;
+	            
+	        }
+	        catch(Exception ex)
+	        {
+	            ex.printStackTrace();
+	        }
+	        
+	        return retorno;
+	    
+	    }
+	    
+	    public Foto buscar(Integer id)
+	    {
+	        Foto retorno = null;
+	        String sql = "SELECT id,imagem from foto where id=?";
+	        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+	        
+	        try {
+	            pst.setInt(1, id);
+	            ResultSet rs = pst.executeQuery();
+	            if(rs.next())
+	            {
+	                retorno = new Foto();
+	                retorno.setId(rs.getInt("id"));
+	                retorno.setImagem(rs.getBytes("imagem"));
+	            
+	            }
+	            
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            retorno = null;
+	        }
+	        
+	        return retorno;
+	    
+	    }
+	    
+}
