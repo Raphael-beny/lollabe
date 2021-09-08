@@ -39,6 +39,7 @@ public class Produto {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_tipo")
+	@NotNull
 	private Tipo tipo;
 
 	

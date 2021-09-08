@@ -36,6 +36,8 @@ public class ProdutoController {
 		return produtoRepository.findAll();
 	}
 	
+	public byte[] fotoSalva;
+	
 
 	@GetMapping("/{id}")
 	public Optional<Produto> buscarColaborador(@PathVariable Long	id){

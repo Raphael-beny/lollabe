@@ -1,0 +1,62 @@
+package br.com.lollabe.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.lollabe.model.Tipo;
+import br.com.lollabe.repository.TipoRepository;
+
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/tipo")
+public class TipoController {
+	
+	@Autowired
+	private TipoRepository tipoRepository;
+	
+	@GetMapping
+	public List<Tipo> listaTipos(){
+		return tipoRepository.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	public Optional<Tipo> buscarTipo(@PathVariable long id){
+		return tipoRepository.findById(id);
+	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Cargo salvarCargo(@RequestBody Cargo cargo) {
+		return cargoRepository.save(cargo);
+	}
+	
+	@DeleteMapping
+	public void deletarCargo(@RequestBody Cargo cargo) {
+		cargoRepository.delete(cargo);
+	}
+	
+	@PutMapping
+	public Cargo atualizarCargo(@RequestBody Cargo cargo) {
+		return cargoRepository.save(cargo);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deletarCargoPorId(@PathVariable long id){
+		cargoRepository.deleteById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public Cargo atualizarCargoPorId(@PathVariable long id, @RequestBody Cargo cargo) {
+		cargo.setId(id);
+		return cargoRepository.save(cargo);
+	}
+	
+
+}
