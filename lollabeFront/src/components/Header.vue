@@ -11,16 +11,6 @@
         <div id="menu-items" :class="{active:menuActive}">
            
            <img alt="lollabe" id="menu-logo" src="../img/lollabe.jpeg">
-
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/produtos">Produtos</a></li>
-                <li><a href="/sobre">Sobre</a></li>
-                <li><a href="/contato">Contato</a></li>
-                <div class="cadastrar" >
-                    <li><a href="/cadastros">Cadastro</a></li>
-                </div>
-            </ul>
             
         </div>
         </nav>

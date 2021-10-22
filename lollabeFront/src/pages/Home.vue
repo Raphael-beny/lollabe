@@ -1,10 +1,15 @@
 <template>
     <main>
-        <div class="text-top"><b>LollaBê</b> 𝐿𝑎ç𝑜𝑠 𝑐𝑜𝑚 𝑎𝑚𝑜𝑟 ♡</div>
-        <a href="https://www.instagram.com/lollabelacos/" target=" blank">
-            <img src="../img/instagram.svg" alt="logo-insta" id="subscribe">
-        </a>
-        <div class="text-botton">@llolabelacos</div>
+        <div class="principal">
+                <img src="../img/aurora1.jpeg" alt="aurora1" id="aurora1">
+                <img src="../img/aurora2.jpeg" alt="aurora2" id="aurora2">
+            <div class="instagram-logo">
+                <h2><b>LollaBê</b> 𝐿𝑎ç𝑜𝑠 𝑐𝑜𝑚 𝑎𝑚𝑜𝑟 ♡</h2> 
+                    <a href="https://www.instagram.com/lollabelacos/" target=" blank">
+                <img src="../img/instagram.svg" alt="logo-insta" id="subscribe">
+                <h3>@llolabelacos</h3>
+                    </a></div>
+        </div>
     </main>
 </template>
 
@@ -20,8 +25,7 @@ export default{
 
     main{
         background-color: var(--color-background-home);
-        justify-content: center;
-        align-items: center;
+        
     }
 
     .text-top{
@@ -40,10 +44,26 @@ export default{
         margin-top: 20px;
     }
 
+    .instagram-logo{
+        
+        align-items: center;
+    }
+
     @media (min-width: 700px){
-        #subscribe{
-            width: 300px;
+        #aurora1, #aurora2{
+            width: 450px;
         }
+
+        .principal{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 100px;
+            justify-items: center;
+        
+        }
+
+        
     }
 
 </style>

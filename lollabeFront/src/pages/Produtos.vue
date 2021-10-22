@@ -9,19 +9,17 @@
 
                 <div class="produto" v-for="produto of produtos" :key="produto.id">
 
-                    
                     <div class="produto-nome">{{produto.nome}}</div>
                  
-                    <div class="produto-preco">Valor: R${{produto.preco}}</div>
-                    <div class="produto-codigo">Código: {{produto.codigo}}</div>
-                    <div class="produto-descricao">Descrição: {{produto.descricao}}</div>
+                    <div class="produto-preco">Valor: R$ {{produto.preco}}</div>
+                    
+                    <div class="produto-descricao">{{produto.descricao}}</div>
                     <img style='display:block; width:300px; height:300px;' id='base64image'
                     :src="gerarLink(produto)"/>
+
                 </div>
 
             </section>
-
-               
 
         </section>
 
@@ -76,7 +74,7 @@ main{
 
 .produto{
     width: 90%;
-    margin-block: 25px;
+    margin-block: 15px;
 }
 
 .produto img{
@@ -84,7 +82,26 @@ main{
 }
 
 .produto-nome{
-    font-size: 22px;
+    color: rgb(93, 136, 93);
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.produto-preco{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.produto-nome{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.produto-codigo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.produto-descricao{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-block-end: 10px;
 }
 
 @media (min-width:700px){

@@ -1,0 +1,5 @@
+package br.com.lollabe.controller;
+
+public class UsuariosController {
+
+}

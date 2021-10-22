@@ -1,0 +1,5 @@
+package br.com.lollabe.repository;
+
+public class UsuariosRepository {
+
+}
